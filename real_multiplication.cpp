@@ -74,7 +74,7 @@ openvdb::FloatGrid::Ptr multiplyMatrices(openvdb::FloatGrid::Ptr A, openvdb::Flo
         {
             // Get the value from A[i,k]
             openvdb::Coord coordA(i, k, 0);
-            float valueA = accessorA.getValue(coordA);
+            double valueA = accessorA.getValue(coordA);
 
             if (valueA != 0.0f) // Proceed if A[i,k] is non-zero
             {
@@ -82,7 +82,7 @@ openvdb::FloatGrid::Ptr multiplyMatrices(openvdb::FloatGrid::Ptr A, openvdb::Flo
                 {
                     // Get the value from B[k,j]
                     openvdb::Coord coordB(k, j, 0);
-                    float valueB = accessorB.getValue(coordB);
+                    double valueB = accessorB.getValue(coordB);
 
                     if (valueB != 0.0f) // Proceed if B[k,j] is non-zero
                     {
@@ -99,10 +99,10 @@ openvdb::FloatGrid::Ptr multiplyMatrices(openvdb::FloatGrid::Ptr A, openvdb::Flo
 }
 
 // Function to calculate the trace of a matrix stored in an OpenVDB grid
-float calculateTrace(openvdb::FloatGrid::Ptr grid, int rows)
+double calculateTrace(openvdb::FloatGrid::Ptr grid, int rows)
 {
     openvdb::FloatGrid::Accessor accessor = grid->getAccessor();
-    float trace = 0.0f;
+    double trace = 0.0f;
 
     for (int i = 0; i < rows; ++i)
     {
@@ -116,7 +116,6 @@ float calculateTrace(openvdb::FloatGrid::Ptr grid, int rows)
 
 int main()
 {
-    // Initialize OpenVDB library
     openvdb::initialize();
 
     // Set matrix dimensions
@@ -138,7 +137,7 @@ int main()
     openvdb::FloatGrid::Ptr result = multiplyMatrices(A, B, rowsA, colsB);
 
     // Calculate the trace of the result matrix
-    float trace = calculateTrace(result, rowsA);
+    double trace = calculateTrace(result, rowsA);
 
     // Print the trace
     cout << "Trace of the result matrix: " << trace << endl;
