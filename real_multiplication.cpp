@@ -123,8 +123,8 @@ int main()
     int rowsB = 0, colsB = 0;
 
     // Read the matrices from files
-    openvdb::FloatGrid::Ptr A = readMatrixFromFile("/home/hp/Desktop/project/subodh_data/P.mtx", rowsA, colsA);
-    openvdb::FloatGrid::Ptr B = readMatrixFromFile("/home/hp/Desktop/project/subodh_data/S.mtx", rowsB, colsB);
+    openvdb::FloatGrid::Ptr A = readMatrixFromFile("/home/hp/GitHub/open_vdb_programs/submatrix_P_20x20.mtx", rowsA, colsA);
+    openvdb::FloatGrid::Ptr B = readMatrixFromFile("/home/hp/GitHub/open_vdb_programs/submatrix_P_20x20.mtx", rowsB, colsB);
 
     // Ensure matrix dimensions are compatible for multiplication
     if (colsA != rowsB)
