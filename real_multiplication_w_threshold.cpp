@@ -116,7 +116,6 @@ openvdb::FloatGrid::Ptr multiplyMatrices(openvdb::FloatGrid::Ptr A, openvdb::Flo
                 if (currentMultiplication % 1000 == 0)
                 {
                     cout << "Progress: Multiplying row " << i + 1 << " of A with column " << j + 1 << " of B" << endl;
-                    // cout << "Completed: " << (100.0 * currentMultiplication / totalMultiplications) << "% of total multiplications" << endl;
                 }
             }
         }
