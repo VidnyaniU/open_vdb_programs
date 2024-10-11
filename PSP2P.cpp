@@ -62,7 +62,6 @@ vector<tuple<int, int, double>> multiplyMatrices(const vector<tuple<int, int, do
     vector<tuple<int, int, double>> result;
 
     // Create a sparse matrix for the result, assuming it's initialized to zero
-    // Here, you can use a more efficient method with hash maps if the data is large
 
     for (const auto& [rowA, colA, valueA] : A) {
         for (const auto& [rowB, colB, valueB] : B) {
